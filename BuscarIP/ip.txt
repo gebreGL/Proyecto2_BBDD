@@ -1,0 +1,63 @@
+Root{continent = 'Europe
+,country = 'Spain
+,calling_code = '34
+,capital = 'Madrid
+,flag = 'Flag{img = 'https://cdn.ipwhois.io/flags/es.svg',emoji = '🇪🇸',emoji_unicode = 'U+1F1EA U+1F1F8'}
+,city = 'Xinzo de Limia
+,borders = 'AD,FR,GI,MA,PT
+,timezone = 'Timezone{offset = '7200',utc = '+02:00',id = 'Europe/Madrid',abbr = 'CEST',is_dst = 'true',current_time = '2022-10-10T11:09:22+02:00'}
+,response = '193.144.97.102
+,latitude = '42.0631102
+,continent_code = 'EU
+,type = 'IPv4
+,country_code = 'ES
+,success = 'true
+,is_eu = 'true
+,connection = 'Connection{org = 'Entidad Publica Empresarial Red.es',isp = 'Entidad Publica Empresarial Red.es',domain = 'red.es',asn = '766'}
+,postal = '32630
+,region = 'Galicia
+,region_code = 'GA
+,longitude = '-7.7259471
+}
+Root{continent = 'Africa
+,country = 'Egypt
+,calling_code = '20
+,capital = 'Cairo
+,flag = 'Flag{img = 'https://cdn.ipwhois.io/flags/eg.svg',emoji = '🇪🇬',emoji_unicode = 'U+1F1EA U+1F1EC'}
+,city = 'Kirdasah
+,borders = 'IL,LY,PS,SD
+,timezone = 'Timezone{offset = '7200',utc = '+02:00',id = 'Africa/Cairo',abbr = 'EET',is_dst = 'false',current_time = '2022-10-10T11:09:25+02:00'}
+,response = '196.144.97.102
+,latitude = '30.0308657
+,continent_code = 'AF
+,type = 'IPv4
+,country_code = 'EG
+,success = 'true
+,is_eu = 'false
+,connection = 'Connection{org = 'Vodafone Data',isp = 'Vodafone Data',domain = '',asn = '36935'}
+,postal = '12943
+,region = 'Giza
+,region_code = '
+,longitude = '31.1111907
+}
+Root{continent = 'Africa
+,country = 'Egypt
+,calling_code = '20
+,capital = 'Cairo
+,flag = 'Flag{img = 'https://cdn.ipwhois.io/flags/eg.svg',emoji = '🇪🇬',emoji_unicode = 'U+1F1EA U+1F1EC'}
+,city = 'Kirdasah
+,borders = 'IL,LY,PS,SD
+,timezone = 'Timezone{offset = '7200',utc = '+02:00',id = 'Africa/Cairo',abbr = 'EET',is_dst = 'false',current_time = '2022-10-10T11:09:29+02:00'}
+,response = '196.144.97.1
+,latitude = '30.0308657
+,continent_code = 'AF
+,type = 'IPv4
+,country_code = 'EG
+,success = 'true
+,is_eu = 'false
+,connection = 'Connection{org = 'Vodafone Data',isp = 'Vodafone Data',domain = '',asn = '36935'}
+,postal = '12943
+,region = 'Giza
+,region_code = '
+,longitude = '31.1111907
+}
