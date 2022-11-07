@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="535.0" prefWidth="735.0" spacing="40.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.buscarip.controller.IpController">
+   <children>
+      <AnchorPane prefHeight="482.0" prefWidth="688.0">
+         <children>
+             <Button fx:id="btnGuardar" layoutX="525.0" layoutY="439.0" onAction="#guardarDatos" prefHeight="59.0" prefWidth="135.0" text="Guardar" />
+            <TextField fx:id="txtNombreArchivo" layoutX="66.0" layoutY="450.0" prefHeight="36.0" prefWidth="170.0" />
+                 <ComboBox fx:id="select" layoutX="266.0" layoutY="450.0" prefHeight="36.0" prefWidth="203.0" promptText="Seleccione un formato" />
+                 <TableView fx:id="tableView" layoutX="26.0" layoutY="7.0" prefHeight="219.0" prefWidth="415.0">
+                     <columns>
+                         <TableColumn fx:id="colPostal" prefWidth="132.0" text="Codigo Postal" />
+                         <TableColumn fx:id="colCiudad" minWidth="0.0" prefWidth="145.0" text="Ciuadad" />
+                         <TableColumn fx:id="colDireccion" prefWidth="137.0" text="Ip" />
+                     </columns>
+                 </TableView>
+                 <Button id="btnBuscar" fx:id="btnBuscar" layoutX="478.0" layoutY="109.0" onAction="#setIp" prefHeight="67.0" prefWidth="159.0" text="Buscar" />
+            <Label layoutX="523.0" layoutY="28.0" text="RASTREAR IP" />
+            <Label layoutX="37.0" layoutY="268.0" prefHeight="17.0" prefWidth="37.0" text="IP" />
+            <Label layoutX="45.0" layoutY="308.0" text="Pais" />
+            <Label fx:id="lblDireccion" layoutX="118.0" layoutY="266.0" prefHeight="17.0" prefWidth="97.0" text="" />
+            <Label layoutX="35.0" layoutY="363.0" text="Codigo Postal" />
+            <Label fx:id="lblPais" layoutX="131.0" layoutY="308.0" prefHeight="17.0" prefWidth="48.0" text="" />
+            <Label fx:id="lblCodigoPostal" layoutX="136.0" layoutY="363.0" prefHeight="17.0" prefWidth="87.0" text="" />
+            <Label layoutX="229.0" layoutY="266.0" text="Latitud" />
+            <Label layoutX="223.0" layoutY="316.0" text="Longitud" />
+            <Label layoutX="228.0" layoutY="363.0" text="Ciudad" />
+            <Label fx:id="lblLatitud" layoutX="291.0" layoutY="268.0" prefHeight="17.0" prefWidth="63.0" text="" />
+            <Label fx:id="lblLongitud" layoutX="291.0" layoutY="316.0" text="" />
+            <Label fx:id="lblCity" layoutX="291.0" layoutY="363.0" prefHeight="17.0" prefWidth="56.0" text="" />
+            <Label layoutX="363.0" layoutY="266.0" text="Region" />
+            <Label layoutX="364.0" layoutY="316.0" text="Capital" />
+            <Label layoutX="365.0" layoutY="363.0" text="Prefijo" />
+            <Label fx:id="lblRegion" layoutX="441.0" layoutY="276.0" text="" />
+            <Label fx:id="lblCapital" layoutX="441.0" layoutY="316.0" text="" />
+            <Label fx:id="lblPrefijo" layoutX="443.0" layoutY="363.0" text="" />
+            <ComboBox fx:id="selectIp" layoutX="478.0" layoutY="54.0" prefHeight="36.0" prefWidth="159.0" promptText="0.0.0.0" />
+            <Label layoutX="484.0" layoutY="202.0" text="Filtrar por nombre de la ciudad: " />
+            <TextField fx:id="txtFiltrarCiudad" layoutX="483.0" layoutY="231.0" prefHeight="25.0" prefWidth="108.0" />
+            <Button fx:id="btnAnhadir" layoutX="602.0" layoutY="231.0" mnemonicParsing="false" text="Añadir" onAction="#filtrarCity" />
+                   <Label nodeOrientation="LEFT_TO_RIGHT" text="Nombre del archivo : " />
+            <TableView fx:id="tableCiudad" layoutX="458.0" layoutY="266.0" prefHeight="165.0" prefWidth="250.0">
+              <columns>
+                <TableColumn fx:id="colDirFiltrada" prefWidth="249.0" text="Ciudad" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+   </children>
+
+</VBox>

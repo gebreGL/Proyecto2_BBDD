@@ -1,0 +1,22 @@
+Root{,country = 'Spain
+,calling_code = '34
+,capital = 'Madrid
+,city = 'Jaén
+,ip = '195.57.104.118
+,latitude = '37.7795941
+,success = 'false
+,postal = '23009
+,region = 'Andalusia
+,longitude = '-3.7849057
+}
+Root{,country = 'Austria
+,calling_code = '43
+,capital = 'Vienna
+,city = 'Bärnbach
+,ip = '103.203.183.255
+,latitude = '47.0770947
+,success = 'false
+,postal = '8572
+,region = 'Styria
+,longitude = '15.1242042
+}
