@@ -94,7 +94,7 @@ public class Exports {
     }
     //Método que convierte a TXT , se le pasa un nombre con el que se guardará y un arrayList de IPS
     public void convertTXT(String txtNombreArchivo , ArrayList<Root> ips){
-        try (PrintWriter escritor = new PrintWriter(txtNombreArchivo+".txt")) {
+        try (PrintWriter escritor = new PrintWriter("..\\BuscarIP\\src\\Archivos\\"+txtNombreArchivo+".txt")) {
             for (int i = 0; i <ips.size(); i++) {
                 escritor.println(ips.get(i).toString());
             }

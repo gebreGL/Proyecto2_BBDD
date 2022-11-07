@@ -100,18 +100,24 @@ public class IpController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Connection con = null;
-            String url1= "jdbc:mysql://localhost:3306/IPS_BBDD";
+            String url1= "jdbc:mysql://localhost:3306/BD_ips";
             String user= "root";
             String password  = "root";
             // create a connection to the database
             con = DriverManager.getConnection(url1, user, password);
             Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM IPS");
+             ResultSet rs = stmt.executeQuery("SELECT * FROM datos");
             while (rs.next()){
                 String direccionIp = rs.getString("IP") ;
                 String codePostal = rs.getString("POSTAL") ;
-                String city = rs.getString("CITY") ;
-                Root ip = new Root(direccionIp,codePostal,city) ;
+                String city = rs.getString("ciudad") ;
+                String country  = rs.getString("PAIS") ;
+                String  callingCode = rs.getString("prefijo") ;
+                String capital = rs.getString("capital") ;
+                Double latitude  = rs.getDouble("latitud") ;
+                String  region = rs.getString("region") ;
+                Double longitude = rs.getDouble("longitud") ;
+                Root ip = new Root( country,  callingCode,  capital,  city,  direccionIp,  latitude,  codePostal,  region , longitude)  ;
                 ips.add(ip);
             }
         } catch (SQLException ex) {
@@ -132,8 +138,7 @@ public class IpController implements Initializable {
         colCiudad.setCellValueFactory(new PropertyValueFactory("city"));
         colPostal.setCellValueFactory(new PropertyValueFactory("postal"));
     }
-
-
+    
     public void setIp(ActionEvent actionEvent) {
         String ipSelecionada = selectIp.getValue().toString();
         for (int i = 0 ; i < ips.size();  i++){
@@ -141,14 +146,13 @@ public class IpController implements Initializable {
                 lblCapital.setText(ips.get(i).getCapital());
                 lblLatitud.setText(Double.toString(ips.get(i).getLatitude()));
                 lblPais.setText(ips.get(i).getCountry());
-                lblPrefijo.setText(ips.get(i).getRegionCode());
                 lblLongitud.setText(Double.toString(ips.get(i).getLongitude()));
                 lblCodigoPostal.setText(ips.get(i).getPostal());
                 lblCity.setText(ips.get(i).getCity());
                 lblRegion.setText(ips.get(i).getRegion());
                 lblDireccion.setText(ips.get(i).getIp());
+                lblPrefijo.setText(ips.get(i).getCallingCode());
                 tableIps.add(ips.get(i));
-                System.out.println(ips.get(i).getCountryCode());
                 tableView.setItems(tableIps);
             }
         }
