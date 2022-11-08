@@ -67,8 +67,8 @@ public class Exports {
     //Método que convierte a formato BIN
     public void convertBin() {
         try (ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream("..\\BuscarIP\\src\\Archivos\\"+IpController.nombreArchivo + ".bin"));) {
-            for (int i = 0; i < IpController.allIps.size(); i++) {
-                escritor.writeObject(IpController.allIps.get(i));
+            for (int i = 0; i < IpController.comboIp.size(); i++) {
+                escritor.writeObject(IpController.comboIp.get(i));
             }
             System.out.println("Se creó un archivo llamado "+IpController.nombreArchivo+".bin");
         } catch (IOException ex) {

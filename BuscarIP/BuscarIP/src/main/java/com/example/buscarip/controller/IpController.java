@@ -26,8 +26,7 @@ public class IpController implements Initializable {
     private  TextField txtNombreArchivo ;
     @FXML
     private ObservableList<Root> tableIps;
-    @FXML
-    private ObservableList<String> arrayCity;
+
     @FXML
     private TableView tableView;
     @FXML
@@ -40,15 +39,16 @@ public class IpController implements Initializable {
     @FXML
     private  TableColumn<Root,String> colPostal = new TableColumn<>("postal");
     @FXML
-    private  TableColumn<Root,String> colDirFiltrada = new TableColumn<>();
+    private  TableColumn<String, String> colDirFiltrada = new TableColumn<>("City");
     //Arraylist de Ips para guardar todas las Ips que vaya añadiendo el usuario .
-    public static ArrayList<Root> allIps = new ArrayList<>();
+    public static ArrayList<Root> comboIp = new ArrayList<>();
     public static ArrayList<Root> ipFiltrada = new ArrayList<>();
     public static ArrayList<Root> ipsSeleccionadas = new ArrayList<>();
     // El observable es como un ArrayList , pero para la clase FX
     public static ArrayList<String> direccionIp = new ArrayList<>() ;
     ObservableList<String> opcionesList ;
     ObservableList<String> ipList ;
+    ObservableList<String> arrayCity;
     // En este observable guardaremos las opciones del combo que son xml , txt , bin , json
     // y todo para guardar todos los archivos
     @FXML
@@ -92,7 +92,12 @@ public class IpController implements Initializable {
             // create a connection to the database
             con = DriverManager.getConnection(url1, user, password);
             Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM datos");
+            ResultSet rs  = null ;
+            if (  ciudadesConsulta.equals("")){
+                rs = stmt.executeQuery("SELECT * FROM datos");
+            }else{
+                rs = stmt.executeQuery("SELECT * FROM DATOS ORDER BY FIELD (CIUDAD,"+ciudadesConsulta+") DESC, ciudad");
+            }
             while (rs.next()){
                 String direccionIp = rs.getString("IP") ;
                 String codePostal = rs.getString("POSTAL") ;
@@ -104,7 +109,7 @@ public class IpController implements Initializable {
                 String  region = rs.getString("region") ;
                 Double longitude = rs.getDouble("longitud") ;
                 Root ip = new Root( country,  callingCode,  capital,  city,  direccionIp,  latitude,  codePostal,  region , longitude)  ;
-                allIps.add(ip);
+                comboIp.add(ip);
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -112,41 +117,19 @@ public class IpController implements Initializable {
     //Inicializamos el combobox con valores del Observable y la tabla con ip , city y postal
         opcionesList= FXCollections.observableArrayList(opciones);
         select.setItems(opcionesList);
-        for (int i = 0; i < allIps.size() ; i ++){
-            direccionIp.add(allIps.get(i).getIp());
+        for (int i = 0; i < comboIp.size() ; i ++){
+            direccionIp.add(comboIp.get(i).getIp());
         }
         ipList= FXCollections.observableArrayList(direccionIp);
         selectIp.setItems(ipList);
         tableIps= FXCollections.observableArrayList();
-        arrayCity = FXCollections.observableArrayList();
         colDireccion.setCellValueFactory(new PropertyValueFactory("ip"));
         colCiudad.setCellValueFactory(new PropertyValueFactory("city"));
         colPostal.setCellValueFactory(new PropertyValueFactory("postal"));
-        colDirFiltrada.setCellValueFactory(new PropertyValueFactory("ip"));
+        colDirFiltrada.setCellValueFactory(new PropertyValueFactory("City"));
     }
     
     public void setIp(ActionEvent actionEvent) {
-        String ipSelecionada = selectIp.getValue().toString();
-        for (int i = 0; i < allIps.size(); i++){
-            if (ipSelecionada.equals(allIps.get(i).getIp())){
-                ipsSeleccionadas.add(allIps.get(i));
-                lblCapital.setText(allIps.get(i).getCapital());
-                lblLatitud.setText(Double.toString(allIps.get(i).getLatitude()));
-                lblPais.setText(allIps.get(i).getCountry());
-                lblLongitud.setText(Double.toString(allIps.get(i).getLongitude()));
-                lblCodigoPostal.setText(allIps.get(i).getPostal());
-                lblCity.setText(allIps.get(i).getCity());
-                lblRegion.setText(allIps.get(i).getRegion());
-                lblDireccion.setText(allIps.get(i).getIp());
-                lblPrefijo.setText(allIps.get(i).getCallingCode());
-                tableIps.add(allIps.get(i));
-                tableView.setItems(tableIps);
-            }
-        }
-    }
-    ArrayList<String> ciudadesFiltradas = new ArrayList<>();
-    public void filtrarCity(ActionEvent actionEvent) {
-        ciudadesFiltradas.add(txtFiltrarCiudad.getText());
         try {
             Connection con = null;
             String url1= "jdbc:mysql://localhost:3306/BD_ips";
@@ -155,17 +138,12 @@ public class IpController implements Initializable {
             // create a connection to the database
             con = DriverManager.getConnection(url1, user, password);
             Statement stmt = con.createStatement();
-            String ciudades = "";
-            String ciudadesConsulta ;
-            for (int i = 0 ; i < ciudadesFiltradas.size() ; i++){
-               ciudades +="'"+ ciudadesFiltradas.get(i)+"',";
+            ResultSet rs  = null ;
+            if (  ciudadesConsulta.equals("")){
+                rs = stmt.executeQuery("SELECT * FROM datos");
+            }else{
+                rs = stmt.executeQuery("SELECT * FROM DATOS ORDER BY FIELD (CIUDAD,"+ciudadesConsulta+") DESC, ciudad");
             }
-             ciudadesConsulta = ciudades.replaceFirst(".$", "");
-            System.out.println(ciudadesConsulta);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM DATOS ORDER BY FIELD (CIUDAD,"+ciudadesConsulta+") DESC, ciudad");
-            arrayCity.add(txtFiltrarCiudad.getText());
-            tableCiudad.setItems(arrayCity);
-            System.out.println("SELECT * FROM DATOS ORDER BY FIELD (CIUDAD,"+ciudadesConsulta+") DESC, ciudad");
             while (rs.next()){
                 String direccionIp = rs.getString("IP") ;
                 String codePostal = rs.getString("POSTAL") ;
@@ -178,12 +156,37 @@ public class IpController implements Initializable {
                 Double longitude = rs.getDouble("longitud") ;
                 Root ip = new Root( country,  callingCode,  capital,  city,  direccionIp,  latitude,  codePostal,  region , longitude)  ;
             }
-            for (int i = 0 ; i < ipFiltrada.size(); i++){
-                System.out.println(ipFiltrada.get(i).getCity());
-            }
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        String ipSelecionada = selectIp.getValue().toString();
+        for (int i = 0; i < comboIp.size(); i++){
+            if (ipSelecionada.equals(comboIp.get(i).getIp())){
+                ipsSeleccionadas.add(comboIp.get(i));
+                lblCapital.setText(comboIp.get(i).getCapital());
+                lblLatitud.setText(Double.toString(comboIp.get(i).getLatitude()));
+                lblPais.setText(comboIp.get(i).getCountry());
+                lblLongitud.setText(Double.toString(comboIp.get(i).getLongitude()));
+                lblCodigoPostal.setText(comboIp.get(i).getPostal());
+                lblCity.setText(comboIp.get(i).getCity());
+                lblRegion.setText(comboIp.get(i).getRegion());
+                lblDireccion.setText(comboIp.get(i).getIp());
+                lblPrefijo.setText(comboIp.get(i).getCallingCode());
+                tableIps.add(comboIp.get(i));
+                tableView.setItems(tableIps);
+            }
+        }
+    }
+    String ciudadesConsulta = "" ;
+    public void filtrarCity(ActionEvent actionEvent) {
+        arrayCity.add(txtFiltrarCiudad.getText());
+        String ciudades = "";
+
+        for (int i = 0 ; i < arrayCity.size() ; i++){
+               ciudades +="'"+ arrayCity.get(i)+"',";
+        }
+        ciudadesConsulta = ciudades.replaceFirst(".$", "");
+        System.out.println(ciudadesConsulta);
     }
 
 
