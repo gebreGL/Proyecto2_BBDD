@@ -27,20 +27,11 @@ public class Root implements Serializable {
 	@JsonProperty("latitude")
 	private double latitude;
 
-	@JsonProperty("type")
-	private String type;
-
-	@JsonProperty("country_code")
-	private String countryCode;
 
 	@JsonProperty("success")
 	private boolean success;
 
-	@JsonProperty("is_eu")
-	private boolean isEu;
 
-	@JsonProperty("connection")
-	private Connection connection;
 	@JsonProperty("postal")
 	private String postal;
 
@@ -49,12 +40,6 @@ public class Root implements Serializable {
 
 	@JsonProperty("longitude")
 	private double longitude;
-
-	public Root( String ip, String countryCode, String city) {
-		this.city = city;
-		this.ip = ip;
-		this.countryCode = countryCode;
-	}
 
 
 
@@ -88,25 +73,13 @@ public class Root implements Serializable {
 		return latitude;
 	}
 
-	public String getType(){
-		return type;
-	}
 
-	public String getCountryCode(){
-		return countryCode;
-	}
 
 	public boolean isSuccess(){
 		return success;
 	}
 
-	public boolean isIsEu(){
-		return isEu;
-	}
 
-	public Connection getConnection(){
-		return connection;
-	}
 
 	public String getPostal(){
 		return postal;
@@ -128,7 +101,6 @@ public class Root implements Serializable {
 		this.city = city;
 		this.ip = ip;
 		this.latitude = latitude;
-		this.countryCode = countryCode;
 		this.postal = postal;
 		this.region = region;
 		this.longitude = longitude;
@@ -143,25 +115,17 @@ public class Root implements Serializable {
 		this.ip = ip;
 	}
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
 	@Override
  	public String toString(){
 		return 
-			"Root{" +
+			"Ip{" +
 			",country = '" + country + "\n" +
 			",calling_code = '" + callingCode + "\n" +
 			",capital = '" + capital + "\n" +
 			",city = '" + city + "\n" +
 			",ip = '" + ip + "\n" +
 			",latitude = '" + latitude + "\n" +
-			",type = '" + type + "\n" +
-			",country_code = '" + countryCode + "\n" +
 			",success = '" + success + "\n" +
-			",is_eu = '" + isEu + "\n" +
-			",connection = '" + connection + "\n" +
 			",postal = '" + postal + "\n" +
 			",region = '" + region + "\n" +
 			",longitude = '" + longitude + "\n" +

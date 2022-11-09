@@ -46,7 +46,6 @@ public class IpController implements Initializable {
     @FXML
     private ObservableList<Root> tableIps;
 
-    private ObservableList<Flag> tableIpsBanderas;
 
     @FXML
     private TableView tableView;
@@ -56,8 +55,7 @@ public class IpController implements Initializable {
     private TableColumn<Root,String> colDireccion = new TableColumn<>("Direccion");
 
     @FXML
-    private TableColumn<Flag,String> colPostal = new TableColumn<>("img");
-
+    private TableColumn<Root,String> colPostal = new TableColumn<>("Direccion");
     @FXML
     private  TableColumn<Root,String> colCiudad = new TableColumn<>("Ciudad");
 
@@ -162,7 +160,6 @@ public class IpController implements Initializable {
         ipList= FXCollections.observableArrayList(direccionIp);
         selectIp.setItems(ipList);
         tableIps= FXCollections.observableArrayList();
-        tableIpsBanderas = FXCollections.observableArrayList();
         colDireccion.setCellValueFactory(new PropertyValueFactory("ip"));
         colCiudad.setCellValueFactory(new PropertyValueFactory("city"));
         colPostal.setCellValueFactory(new PropertyValueFactory("postal"));
