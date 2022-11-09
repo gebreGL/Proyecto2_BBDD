@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.buscarip.controller.RegistroController">
+   <children>
+      <Label fx:id="lblRegistro" layoutX="227.0" layoutY="60.0" text="REGISTRO">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <TextField fx:id="txtUsuario" layoutX="69.0" layoutY="131.0" prefHeight="25.0" prefWidth="181.0" />
+      <PasswordField fx:id="txtContra" layoutX="69.0" layoutY="192.0" prefHeight="25.0" prefWidth="181.0" />
+      <PasswordField fx:id="txtContra2" layoutX="69.0" layoutY="256.0" prefHeight="25.0" prefWidth="181.0" />
+      <Label fx:id="lblUsuario" layoutX="69.0" layoutY="108.0" text="Usuario">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblContra" layoutX="69.0" layoutY="170.0" text="Contraseña">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblContra2" layoutX="69.0" layoutY="231.0" text="Repita la Contraseña">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRegistrar" layoutX="254.0" layoutY="306.0" mnemonicParsing="false" onAction="#registro" text="Registrar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnInicio" layoutX="47.0" layoutY="35.0" mnemonicParsing="false" onAction="#irInicio" text="Volver al Inicio">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Label fx:id="lblNombre" layoutX="339.0" layoutY="110.0" text="Nombre">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblApellidos" layoutX="339.0" layoutY="172.0" text="Apellidos">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCorreo" layoutX="339.0" layoutY="233.0" text="Correo">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNombre" layoutX="339.0" layoutY="131.0" prefHeight="25.0" prefWidth="181.0" />
+      <TextField fx:id="txtApellidos" layoutX="339.0" layoutY="192.0" prefHeight="25.0" prefWidth="181.0" />
+      <TextField fx:id="txtCorreo" layoutX="339.0" layoutY="256.0" prefHeight="25.0" prefWidth="181.0" />
+   </children>
+</AnchorPane>
