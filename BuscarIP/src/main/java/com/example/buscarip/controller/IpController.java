@@ -88,13 +88,10 @@ public class IpController implements Initializable {
 
     @FXML
     private Label lblLongitud;
-
     @FXML
     private Label lblRegion;
-
     @FXML
     private Label lblCapital;
-
     @FXML
     private Label lblPrefijo;
 

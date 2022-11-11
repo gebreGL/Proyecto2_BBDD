@@ -1,0 +1,110 @@
+Ip{,country = 'Australia
+,calling_code = '61
+,capital = 'Canberra
+,city = 'Narre Warren
+,ip = '1.0.7.255
+,latitude = '-38.018
+,success = 'false
+,postal = '3805
+,region = 'Victoria
+,longitude = '145.3
+}
+Ip{,country = 'Brazil
+,calling_code = '55
+,capital = 'Brasília
+,city = 'São Paulo
+,ip = '1.178.47.255
+,latitude = '-23.5505199
+,success = 'false
+,postal = '01005-000
+,region = 'State of São Paulo
+,longitude = '-46.6333094
+}
+Ip{,country = 'Cameroon
+,calling_code = '237
+,capital = 'Yaoundé
+,city = 'Yaounde
+,ip = '102.132.31.255
+,latitude = '3.8480325
+,success = 'false
+,postal = '1561
+,region = 'Centre
+,longitude = '11.5020752
+}
+Ip{,country = 'Greece
+,calling_code = '30
+,capital = 'Athens
+,city = 'Neapoli
+,ip = '103.187.242.255
+,latitude = '35.2563455
+,success = 'false
+,postal = '724 00
+,region = 'Region of Crete
+,longitude = '25.6048531
+}
+Ip{,country = 'Austria
+,calling_code = '43
+,capital = 'Vienna
+,city = 'Bärnbach
+,ip = '103.203.183.255
+,latitude = '47.0770947
+,success = 'false
+,postal = '8572
+,region = 'Styria
+,longitude = '15.1242042
+}
+Ip{,country = 'Greenland
+,calling_code = '299
+,capital = 'Nuuk
+,city = 'Maniitsoq
+,ip = '128.0.70.255
+,latitude = '65.4076761
+,success = 'false
+,postal = '3912
+,region = 'Kitaa
+,longitude = '-52.9005718
+}
+Ip{,country = 'Spain
+,calling_code = '34
+,capital = 'Madrid
+,city = 'Jaén
+,ip = '195.57.104.118
+,latitude = '37.7795941
+,success = 'false
+,postal = '23009
+,region = 'Andalusia
+,longitude = '-3.7849057
+}
+Ip{,country = 'Spain
+,calling_code = '34
+,capital = 'Madrid
+,city = 'Madrid
+,ip = '195.57.104.99
+,latitude = '40.4167754
+,success = 'false
+,postal = '28080
+,region = 'Madrid
+,longitude = '-3.7037902
+}
+Ip{,country = 'Spain
+,calling_code = '34
+,capital = 'Madrid
+,city = 'Seville
+,ip = '195.57.5.1
+,latitude = '37.3890924
+,success = 'false
+,postal = '41001
+,region = 'Andalusia
+,longitude = '-5.9844589
+}
+Ip{,country = 'United States
+,calling_code = '1
+,capital = 'Washington D.C.
+,city = 'Washington
+,ip = '205.66.104.14
+,latitude = '38.9071923
+,success = 'false
+,postal = '20500
+,region = 'DC
+,longitude = '-77.0368707
+}
